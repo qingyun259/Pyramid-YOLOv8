@@ -1,5 +1,6 @@
 ## Inference
-``` shell
+
 # detect Pyramid-YOLOv8 model
-# python detect.py 
+``` shell
+python detect.py 
 ```
