@@ -33,9 +33,9 @@ def parse_opt():
     parser.add_argument('--yaml', type=str, default='ultralytics/models/v8/Pyramid-YOLOv8.yaml', help='model.yaml path')
     parser.add_argument('--weight', type=str, default='', help='pretrained model path')
     parser.add_argument('--cfg', type=str, default='hyp.yaml', help='hyperparameters path')
-    parser.add_argument('--data', type=str, default='ultralytics/datasets/disease.yaml', help='data yaml path')
+    parser.add_argument('--data', type=str, default='ultralytics/datasets/coco128.yaml', help='data yaml path')
     
-    parser.add_argument('--epochs', type=int, default=1, help='number of epochs to train for')
+    parser.add_argument('--epochs', type=int, default=300, help='number of epochs to train for')
     parser.add_argument('--patience', type=int, default=100, help='EarlyStopping patience (epochs without improvement)')
     parser.add_argument('--unamp', action='store_true', help='Unuse Automatic Mixed Precision (AMP) training')
     parser.add_argument('--batch', type=int, default=8, help='number of images per batch (-1 for AutoBatch)')
@@ -44,9 +44,9 @@ def parse_opt():
     parser.add_argument('--device', type=str, default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     parser.add_argument('--workers', type=int, default=8, help='max dataloader workers (per RANK in DDP mode)')
     parser.add_argument('--project', type=str, default=ROOT / 'runs/train', help='save to project/name')
-    parser.add_argument('--name', type=str, default='YOLOv8x_Faster-head-CBAM_Pyramid(1-1-1_33-33-33_v2)', help='save to project/name')
+    parser.add_argument('--name', type=str, default='exp', help='save to project/name')
     parser.add_argument('--resume', type=str, default=False, help='resume training from last checkpoint')
-    parser.add_argument('--optimizer', type=str, choices=['SGD', 'Adam', 'Adamax', 'NAdam', 'RAdam', 'AdamW', 'RMSProp', 'auto'], default='auto', help='optimizer (auto -> ultralytics/yolo/engine/trainer.py in build_optimizer funciton.)')
+    parser.add_argument('--optimizer', type=str, choices=['SGD', 'Adam', 'Adamax', 'NAdam', 'RAdam', 'AdamW', 'RMSProp', 'auto'], default='AdamW', help='optimizer (auto -> ultralytics/yolo/engine/trainer.py in build_optimizer funciton.)')
     parser.add_argument('--close_mosaic', type=int, default=0, help='(int) disable mosaic augmentation for final epochs')
     parser.add_argument('--info', action="store_true", help='model info verbose')
     
