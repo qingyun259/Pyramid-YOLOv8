@@ -1,0 +1,2 @@
+## Inference
+Python detect.py
